@@ -1,6 +1,10 @@
 # Meal Prep Client
 
 ### Related Information
+Meal Prep is an application designed to store recipes.  Version 1 will act primarily as a simple recipe store.  Version 2 will implement new features aimed at aiding in meal prep, such as weekly planning and grocery lists, and potentially more.
+
+### Wire Frames
+<img src="https://github.com/rudenate3/meal-prep-client/blob/master/docs/Meal_Prep_Wire_frames.png?raw=true" height=300 width=300 />
 
 ### User Stories
 
@@ -60,3 +64,6 @@
 - Log out
 
 ### Technologies Used
+
+- React 16
+- Bootstrap 4
