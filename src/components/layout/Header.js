@@ -10,6 +10,11 @@ export default class Header extends Component {
             Home
           </Link>
         </li>
+        <li className="nav-item active">
+          <Link className="nav-link" to={'/about'}>
+            About
+          </Link>
+        </li>
       </ul>
     )
 
