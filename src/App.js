@@ -6,6 +6,7 @@ import store from './store'
 
 import Landing from './components/landing/Landing'
 import Header from './components/layout/Header'
+import Footer from './components/layout/Footer'
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
           <div className="app">
             <Header />
             <Route exact path="/" component={Landing} />
+            <Footer />
           </div>
         </Router>
       </Provider>
