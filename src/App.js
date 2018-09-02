@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import store from './store'
 
 import Landing from './components/landing/Landing'
+import Header from './components/layout/Header'
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="app">
+            <Header />
             <Route exact path="/" component={Landing} />
           </div>
         </Router>
