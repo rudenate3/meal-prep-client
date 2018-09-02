@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import PageHeader from '../common/ui/PageHeader'
 
 class Landing extends Component {
   render() {
     return (
       <div>
-        <h1>Landing Page</h1>
+        <PageHeader content="Landing Page" />
       </div>
     )
   }
