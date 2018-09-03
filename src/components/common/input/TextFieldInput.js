@@ -14,7 +14,7 @@ const TextFieldInput = ({
 }) => {
   return (
     <div className="form-group">
-      {label && <label for={name}>{label}</label>}
+      {label && <label htmlFor={name}>{label}</label>}
       <input
         type={type}
         className="form-control form-control-lg"
@@ -24,8 +24,8 @@ const TextFieldInput = ({
         onChange={onChange}
         disabled={disabled}
       />
+      {error && <div className="alert alert-danger mt-2">{error}</div>}
       {info && <small className="form-text text-muted">{info}</small>}
-      {error && <div className="invalid-feedback">{error}</div>}
     </div>
   )
 }
