@@ -4,18 +4,27 @@ import { Link } from 'react-router-dom'
 export default class Header extends Component {
   render() {
     const anonLinks = (
-      <ul className="navbar-nav mr-auto">
-        <li className="nav-item active">
-          <Link className="nav-link" to={'/'}>
-            Home
-          </Link>
-        </li>
-        <li className="nav-item active">
-          <Link className="nav-link" to={'/about'}>
-            About
-          </Link>
-        </li>
-      </ul>
+      <React.Fragment>
+        <ul className="navbar-nav mr-auto">
+          <li className="nav-item">
+            <Link className="nav-link" to={'/'}>
+              Home
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to={'/about'}>
+              About
+            </Link>
+          </li>
+        </ul>
+        <ul className="navbar-nav ml-auto">
+          <li className="nav-item">
+            <Link className="nav-link" to={'/register'}>
+              Register
+            </Link>
+          </li>
+        </ul>
+      </React.Fragment>
     )
 
     return (

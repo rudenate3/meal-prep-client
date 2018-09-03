@@ -10,6 +10,7 @@ import Landing from './components/landing/Landing'
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
 import About from './components/about/About'
+import Register from './components/auth/Register'
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
             <div className="container">
               <Route exact path="/" component={Landing} />
               <Route exact path="/about" component={About} />
+              <Route exact path="/register" component={Register} />
             </div>
             <Footer />
           </div>
