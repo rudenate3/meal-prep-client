@@ -37,7 +37,8 @@ export const loginUser = userData => dispatch => {
   axios
     .post(`${api}/auth/sign_in`, userData)
     .then(res => {
-      const { accessToken, client, uid } = res.headers
+      const accessToken = res.headers['access-token'],
+        { client, uid } = res.headers
       setAuthToken(accessToken, client, uid)
       dispatch(setCurrentUser(res.data.data))
     })
