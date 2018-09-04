@@ -35,12 +35,16 @@ export const registerUser = (userData, history) => dispatch => {
 
 export const loginUser = userData => dispatch => {
   axios
-    .post('/auth/sign_in', userData)
-    .then(res => {})
+    .post(`${api}/auth/sign_in`, userData)
+    .then(res => {
+      const { accessToken, client, uid } = res.headers
+      setAuthToken(accessToken, client, uid)
+      dispatch(setCurrentUser(res.data.data))
+    })
     .catch(err =>
       dispatch({
         type: GET_ERRORS,
-        payload: err.response.data
+        payload: { error: err.response.data.errors[0] }
       })
     )
 }

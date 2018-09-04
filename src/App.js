@@ -11,6 +11,7 @@ import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
 import About from './components/about/About'
 import Register from './components/auth/Register'
+import Login from './components/auth/Login'
 
 class App extends Component {
   render() {
@@ -23,6 +24,7 @@ class App extends Component {
               <Route exact path="/" component={Landing} />
               <Route exact path="/about" component={About} />
               <Route exact path="/register" component={Register} />
+              <Route exact path="/login" component={Login} />
             </div>
             <Footer />
           </div>
