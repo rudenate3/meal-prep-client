@@ -50,6 +50,32 @@ export const loginUser = userData => dispatch => {
     )
 }
 
+export const changePassword = (newPassword, history) => dispatch => {
+  axios
+    .put(`${api}/auth/password`, newPassword)
+    .then(res => history.push('/'))
+    .catch(err => {
+      const errors = {}
+
+      if (err.response.data.errors.password) {
+        errors.password = 'Password ' + err.response.data.errors.password[0]
+      }
+
+      if (
+        !err.response.data.errors.password &&
+        err.response.data.errors.password_confirmation
+      ) {
+        errors.password_confirmation =
+          'Confirm Password ' +
+          err.response.data.errors.password_confirmation[0]
+      }
+      dispatch({
+        type: GET_ERRORS,
+        payload: errors
+      })
+    })
+}
+
 export const setCurrentUser = user => {
   return {
     type: SET_CURRENT_USER,

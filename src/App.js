@@ -14,6 +14,7 @@ import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import PrivateRoute from './components/common/routes/PrivateRoute'
 import Home from './components/home/Home'
+import ChangePassword from './components/auth/ChangePassword'
 
 class App extends Component {
   render() {
@@ -29,6 +30,11 @@ class App extends Component {
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/login" component={Login} />
                 <PrivateRoute exact path="/home" component={Home} />
+                <PrivateRoute
+                  exact
+                  path="/change-password"
+                  component={ChangePassword}
+                />
               </Switch>
             </div>
             <Footer />

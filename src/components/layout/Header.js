@@ -32,6 +32,11 @@ class Header extends Component {
     const authLinks = (
       <React.Fragment>
         <li className="nav-item">
+          <Link className="nav-link" to={'/change-password'}>
+            Change Password
+          </Link>
+        </li>
+        <li className="nav-item">
           <a
             style={{ cursor: 'pointer' }}
             onClick={this.onLogoutClick.bind(this)}
