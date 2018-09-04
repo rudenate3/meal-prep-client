@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import './App.css'
 
@@ -12,6 +12,8 @@ import Footer from './components/layout/Footer'
 import About from './components/about/About'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
+import PrivateRoute from './components/common/routes/PrivateRoute'
+import Home from './components/home/Home'
 
 class App extends Component {
   render() {
@@ -21,10 +23,13 @@ class App extends Component {
           <div className="app">
             <Header />
             <div className="container">
-              <Route exact path="/" component={Landing} />
-              <Route exact path="/about" component={About} />
-              <Route exact path="/register" component={Register} />
-              <Route exact path="/login" component={Login} />
+              <Switch>
+                <Route exact path="/" component={Landing} />
+                <Route exact path="/about" component={About} />
+                <Route exact path="/register" component={Register} />
+                <Route exact path="/login" component={Login} />
+                <PrivateRoute exact path="/home" component={Home} />
+              </Switch>
             </div>
             <Footer />
           </div>
