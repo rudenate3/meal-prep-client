@@ -1,9 +1,33 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import classnames from 'classnames'
 
-export default ({ content, type = 'primary', onClick }) => {
+const Button = ({ content, buttonType, onClick, type, styles, block }) => {
   return (
-    <button className={`btn btn-${type}`} onClick={onClick}>
+    <button
+      className={classnames(`btn btn-${buttonType} ${styles}`, {
+        'btn-block': block
+      })}
+      onClick={onClick}
+      type={type}
+    >
       {content}
     </button>
   )
 }
+
+Button.propTypes = {
+  content: PropTypes.string.isRequired,
+  buttonType: PropTypes.string,
+  onClick: PropTypes.func,
+  type: PropTypes.string,
+  styles: PropTypes.string,
+  block: PropTypes.bool
+}
+
+Button.defaultProps = {
+  buttonType: 'primary',
+  type: 'button'
+}
+
+export default Button
