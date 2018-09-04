@@ -1,34 +1,45 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { logoutUser } from '../../actions/authActions'
 
-export default class Header extends Component {
+class Header extends Component {
+  onLogoutClick(e) {
+    e.preventDefault()
+    this.props.logoutUser()
+    this.props.history.push('/')
+  }
+
   render() {
+    const { isAuthenticated } = this.props.auth
+
     const anonLinks = (
       <React.Fragment>
-        <ul className="navbar-nav mr-auto">
-          <li className="nav-item">
-            <Link className="nav-link" to={'/'}>
-              Home
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to={'/about'}>
-              About
-            </Link>
-          </li>
-        </ul>
-        <ul className="navbar-nav ml-auto">
-          <li className="nav-item">
-            <Link className="nav-link" to={'/login'}>
-              Login
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to={'/register'}>
-              Register
-            </Link>
-          </li>
-        </ul>
+        <li className="nav-item">
+          <Link className="nav-link" to={'/login'}>
+            Login
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to={'/register'}>
+            Register
+          </Link>
+        </li>
+      </React.Fragment>
+    )
+
+    const authLinks = (
+      <React.Fragment>
+        <li className="nav-item">
+          <a
+            style={{ cursor: 'pointer' }}
+            onClick={this.onLogoutClick.bind(this)}
+            className="nav-link"
+          >
+            Logout
+          </a>
+        </li>
       </React.Fragment>
     )
 
@@ -50,9 +61,37 @@ export default class Header extends Component {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarsExampleDefault">
-          {anonLinks}
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item">
+              <Link className="nav-link" to={'/'}>
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to={'/about'}>
+                About
+              </Link>
+            </li>
+          </ul>
+          <ul className="navbar-nav ml-auto">
+            {isAuthenticated ? authLinks : anonLinks}
+          </ul>
         </div>
       </nav>
     )
   }
 }
+
+Header.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+}
+
+const mapStateToProps = state => ({
+  auth: state.auth
+})
+
+export default connect(
+  mapStateToProps,
+  { logoutUser }
+)(withRouter(Header))
