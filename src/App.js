@@ -15,6 +15,28 @@ import Login from './components/auth/Login'
 import PrivateRoute from './components/common/routes/PrivateRoute'
 import Home from './components/home/Home'
 import ChangePassword from './components/auth/ChangePassword'
+import setAuthToken from './utils/setAuthToken'
+import { setCurrentUser, logoutUser } from './actions/authActions'
+
+if (
+  localStorage.expiry &&
+  localStorage.expiry <
+    new Date()
+      .getTime()
+      .toString()
+      .slice(0, 10)
+) {
+  store.dispatch(logoutUser)
+  window.location.href = '/login'
+} else if (
+  localStorage.accessToken &&
+  localStorage.client &&
+  localStorage.uid &&
+  localStorage.user
+) {
+  setAuthToken(localStorage.accessToken, localStorage.client, localStorage.uid)
+  store.dispatch(setCurrentUser(JSON.parse(localStorage.user)))
+}
 
 class App extends Component {
   render() {

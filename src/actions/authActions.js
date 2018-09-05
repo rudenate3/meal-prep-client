@@ -38,8 +38,13 @@ export const loginUser = userData => dispatch => {
     .post(`${api}/auth/sign_in`, userData)
     .then(res => {
       const accessToken = res.headers['access-token'],
-        { client, uid } = res.headers
+        { client, expiry, uid } = res.headers
       setAuthToken(accessToken, client, uid)
+      localStorage.setItem('accessToken', accessToken)
+      localStorage.setItem('client', client)
+      localStorage.setItem('uid', uid)
+      localStorage.setItem('expiry', expiry)
+      localStorage.setItem('user', JSON.stringify(res.data.data))
       dispatch(setCurrentUser(res.data.data))
     })
     .catch(err =>
@@ -84,6 +89,11 @@ export const setCurrentUser = user => {
 }
 
 export const logoutUser = () => dispatch => {
+  localStorage.removeItem('accessToken')
+  localStorage.removeItem('client')
+  localStorage.removeItem('uid')
+  localStorage.removeItem('expiry')
+  localStorage.removeItem('user')
   setAuthToken(false)
   dispatch(setCurrentUser({}))
 }
