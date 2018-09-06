@@ -7,10 +7,12 @@ import {
   GET_RECIPE,
   ADD_RECIPE,
   UPDATE_RECIPE,
-  DELETE_RECIPE
+  DELETE_RECIPE,
+  RECIPE_LOADING
 } from './types'
 
 export const getRecipes = () => dispatch => {
+  dispatch(setRecipeLoading())
   axios
     .get(`${api}/recipes`)
     .then(res => {
@@ -27,4 +29,10 @@ export const getRecipes = () => dispatch => {
         payload: null
       })
     )
+}
+
+export const setRecipeLoading = () => {
+  return {
+    type: RECIPE_LOADING
+  }
 }

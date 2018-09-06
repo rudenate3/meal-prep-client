@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { getRecipes } from '../../actions/recipeActions'
 import RecipeCard from './RecipeCard'
+import Loading from '../common/ui/Loading'
 
 class RecipeIndex extends Component {
   componentDidMount() {
@@ -10,11 +11,12 @@ class RecipeIndex extends Component {
   }
 
   render() {
-    const { recipes } = this.props.recipes,
+    const { recipes, loading } = this.props.recipes,
       columns = 4,
       recipeMarkup = []
 
     let recipeCardArray = [],
+      recipeContent,
       row = 1
 
     recipes.forEach((recipe, i) => {
@@ -30,8 +32,12 @@ class RecipeIndex extends Component {
         row++
       }
     })
-
-    return <React.Fragment>{recipeMarkup}</React.Fragment>
+    if (recipes === null || loading) {
+      recipeContent = <Loading />
+    } else {
+      recipeContent = recipeMarkup
+    }
+    return <React.Fragment>{recipeContent}</React.Fragment>
   }
 }
 
