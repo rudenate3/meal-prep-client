@@ -9,7 +9,8 @@ import {
 
 const initialState = {
   recipes: [],
-  recipe: {}
+  recipe: {},
+  loading: false
 }
 
 export default function(state = initialState, action) {
@@ -23,6 +24,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         recipes: action.payload,
+        loading: false
+      }
+    case GET_RECIPE:
+      return {
+        ...state,
+        recipe: action.payload,
         loading: false
       }
     default:

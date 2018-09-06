@@ -20,7 +20,7 @@ export default class RecipeCard extends Component {
           <div className="card-body bg-dark text-white">
             <p className="card-text">{recipe.description}</p>
           </div>
-          <Link to="/">
+          <Link to={`/recipe/${recipe.id}`}>
             <Button content="View Recipe" buttonType="danger" block={true} />
           </Link>
         </div>

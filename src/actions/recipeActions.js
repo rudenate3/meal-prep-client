@@ -31,6 +31,24 @@ export const getRecipes = () => dispatch => {
     )
 }
 
+export const getRecipe = id => dispatch => {
+  dispatch(setRecipeLoading())
+  axios
+    .get(`${api}/recipes/${id}`)
+    .then(res =>
+      dispatch({
+        type: GET_RECIPE,
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_RECIPE,
+        payload: null
+      })
+    )
+}
+
 export const setRecipeLoading = () => {
   return {
     type: RECIPE_LOADING

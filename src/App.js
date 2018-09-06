@@ -17,6 +17,7 @@ import Home from './components/home/Home'
 import ChangePassword from './components/auth/ChangePassword'
 import setAuthToken from './utils/setAuthToken'
 import { setCurrentUser, logoutUser } from './actions/authActions'
+import RecipeDetail from './components/recipe/RecipeDetail'
 
 if (
   localStorage.expiry &&
@@ -49,6 +50,7 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={Landing} />
                 <Route exact path="/about" component={About} />
+                <Route exact path="/recipe/:id" component={RecipeDetail} />
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/login" component={Login} />
                 <PrivateRoute exact path="/home" component={Home} />
