@@ -13,7 +13,7 @@ const Button = ({ content, buttonType, onClick, type, styles, block }) => {
     >
       {content}
     </button>
-  )
+  ) 
 }
 
 Button.propTypes = {
@@ -27,7 +27,8 @@ Button.propTypes = {
 
 Button.defaultProps = {
   buttonType: 'primary',
-  type: 'button'
+  type: 'button',
+  styles: ''
 }
 
 export default Button
