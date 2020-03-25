@@ -1,69 +1,68 @@
-# Meal Prep Client
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### Related Information
-Meal Prep is an application designed to store recipes.  Version 1 will act primarily as a simple recipe store.  Version 2 will implement new features aimed at aiding in meal prep, such as weekly planning and grocery lists, and potentially more.
+## Available Scripts
 
-### Wire Frames
-<img src="https://github.com/rudenate3/meal-prep-client/blob/master/docs/Meal_Prep_Wire_frames.png?raw=true" height=300 width=300 />
+In the project directory, you can run:
 
-### User Stories
+### `yarn start`
 
-##### As an anonymous user I should be able to:
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-- View Recipes
-- View Recipe Details
-- View Ingredients
-- View Ingredient Details
-- Log in
-- Register
-- View About page
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-##### As a logged in user I should be able to:
+### `yarn test`
 
-- View Recipes
-- View Recipe Details
-- Add Recipe
-- Update own Recipes
-- Delete own Recipes
-- View Ingredients
-- View Ingredient Detail
-- Add Ingredient
-- Update own Ingredients
-- Add Recipe to Favorites
-- Remove Recipe from Favorites
-- View Comments
-- Add Comment on Recipe
-- Edit own Comment on Recipe
-- Delete own Comment on Recipe
-- Log out
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-##### As an admin I should be able to:
+### `yarn build`
 
-- View Recipes
-- View Recipe Details
-- Add Recipe
-- Update all Recipes
-- Delete all Recipes
-- View Ingredients
-- View Ingredient Detail
-- Add Ingredient
-- Update all Ingredients
-- Delete all Ingredient
-- Add Quantity
-- Update all Quantities
-- Delete all Quantity
-- Add Tag
-- Update all Tags
-- Delete all Tag
-- Add Recipe to Favorites
-- Remove Recipe from Favorites
-- View Comments
-- Add Comment on Recipe
-- Edit own Comment on Recipe
-- Delete all Comments on Recipe
-- Log out
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-### Technologies Used
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
-- React 16
-- Bootstrap 4
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `yarn eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+
+### Analyzing the Bundle Size
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `yarn build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
